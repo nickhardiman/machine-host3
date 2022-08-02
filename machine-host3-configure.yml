@@ -1,0 +1,13 @@
+---
+- name: configure host3
+  hosts: localhost
+  gather_facts: no
+  become: yes
+  vars:
+    machine: host3.lab.example.com
+  tasks:
+
+  - name: set hostname
+    ansible.builtin.hostname:
+      name: "{{ machine }}"
+
