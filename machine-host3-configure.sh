@@ -1,4 +1,5 @@
 # run
+# log into host3
 # download and run this script
 #   curl -o - https://raw.githubusercontent.com/nickhardiman/machine-host3/main/machine-host3-configure.sh | bash -x
 
