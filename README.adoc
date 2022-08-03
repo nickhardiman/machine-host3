@@ -1,4 +1,4 @@
-= code to configure host2
+= code to configure host3
 Nick Hardiman 
 :source-highlighter: highlight.js
 :revdate: 19-07-2022
@@ -8,28 +8,40 @@ After a fresh install of RHEL, these files configure the new host.
 
 == run
 
-. Install RHEL on host2.
-. Log into host2. My user account is fine, the Ansible playbook will ask for the root password.
+. Install RHEL on host3.
+. Log into host3. My user account is fine, the Ansible playbook will ask for the root password.
 . Download and run this script
 ```
-curl -o - https://raw.githubusercontent.com/nickhardiman/machine-host2/main/machine-host2-configure.sh | bash -x
+curl -o - https://raw.githubusercontent.com/nickhardiman/machine-host3/main/machine-host3-configure.sh | bash -x
 ```
 
-== what is host2
+There's also a script to tweak workstation. 
+```
+curl -o - https://raw.githubusercontent.com/nickhardiman/machine-host3/main/machine-workstation-configure.sh | bash -x
+```
 
-Host2 is one of the PCs in my home lab.
+
+== what is host3
+
+Physical machine host3 is one of the PCs in my home lab.
 It hosts a bunch of VMs (virtual machines). 
-The physical machine host2 will be described in mind-numbing detail at https://hardiman.consulting/, assuming I ever have free time ever again.
+The build of machine host3 will be described in mind-numbing detail at https://hardiman.consulting/, assuming I ever have free time ever again.
 
+I automate the build of host3 using scripts and playbooks on GitHub.
+So building this machine requires two home lab machines and a couple remote service. 
 ```
-my workstation --> host2 <-- GitHub 
+my workstation --> host3 <-- GitHub 
+                         <-- Red Hat CDN
+                         <-- Ansible Galaxy
 ```
 
-* machine-host2-configure.sh: the shell script to kick off the setup process, run on host2.
-* Ansible playbook for host2, run by the script: machine-host2-configure.yml 
+== what are these files
+
+* machine-host3-configure.sh: the shell script to kick off the setup process, run on host3. Downloads RPMs from the CDN, collections from Ansible Galaxy, and my code from GitHub.
+* machine-host3-configure.yml: Ansible playbook for host3, run by the script. 
 * shell script to run on my workstation: machine-workstation-configure.sh
 
 == todo
 
-Way too much.
+Too much! Tired, so very tired. (-_-)
 
